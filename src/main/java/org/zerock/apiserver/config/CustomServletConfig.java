@@ -23,13 +23,14 @@ public class CustomServletConfig implements WebMvcConfigurer {
 
     //cros설정
     //pre-flight => ajax보낼때 미리 찔러보기
-    @Override
-    public void addCorsMappings(CorsRegistry registry){
-        registry.addMapping("/**")
-                .maxAge(500)
-                .allowedMethods("GET", "POST", "PUT", "DELETE", "HEAD", "OPTIONS")
-                .allowedOrigins("*");
-
-    }
+//    @Override
+//    public void addCorsMappings(CorsRegistry registry){
+//        registry.addMapping("/**")
+//                .maxAge(500)
+//                .allowedMethods("GET", "POST", "PUT", "DELETE", "HEAD", "OPTIONS")
+//                .allowedOrigins("*");
+//
+//    }
+    //->security로 빼주어야 한다
 
 }

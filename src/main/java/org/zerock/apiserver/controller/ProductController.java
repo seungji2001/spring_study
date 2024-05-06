@@ -37,7 +37,7 @@ public class ProductController {
     }
 
     @PostMapping("/")
-    public Map<String, Long> register(ProductDTO productDTO){
+    public Map<String, Long> register(ProductDTO productDTO) throws InterruptedException {
         List<MultipartFile> files = productDTO.getFiles();
 
         List<String> uploadFileNames = fileUtil.saveFiles(files);
@@ -47,6 +47,9 @@ public class ProductController {
         log.info(uploadFileNames);
 
         long pno = productService.register(productDTO);
+
+        //시간 느리게 하게
+        Thread.sleep(2000);
 
         return Map.of("result", pno);
     }
