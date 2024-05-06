@@ -56,7 +56,7 @@ dependencies {
 	// https://mvnrepository.com/artifact/net.coobird/thumbnailator
 	implementation group: 'net.coobird', name: 'thumbnailator', version: '0.4.20'
 
-
+	implementation 'com.google.code.gson:gson:2.10.1'
 }
 
 tasks.named('test') {
