@@ -14,6 +14,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.zerock.apiserver.security.handler.APILoginFailHandler;
 import org.zerock.apiserver.security.handler.APILoginSuccessHandler;
 
 import java.util.ArrayList;
@@ -53,6 +54,7 @@ public class CustomSecurityConfig {
             //json data 필요
 //            [Principal=org.zerock.apiserver.dto.MemberDTO [Username=user9@aaa.com, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_ADMIN, ROLE_MANAGER, ROLE_USER]], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ROLE_ADMIN, ROLE_MANAGER, ROLE_USER]]
             //여기서 MemberDto를 json문자열로 바꾼다 -> APILoginSuccessHandler 여기서 동작
+            config.failureHandler(new APILoginFailHandler());
         });
 
         //return http.build();: 구성된 HttpSecurity 설정을 바탕으로 SecurityFilterChain 객체를 빌드하고 반환합니다.
