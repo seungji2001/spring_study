@@ -34,6 +34,7 @@ public class MemberDTO extends User {
     }
 
     //jwt문자열을 만들어서 주고 받는다
+    //jwt의 내용물을 Claims라 한다
     public Map<String, Object> getClaims() {
         Map<String, Object> dataMap = new HashMap<>();
         dataMap.put("email", email);
